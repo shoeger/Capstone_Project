@@ -1,0 +1,52 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>BAIS Placement System 1.0</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link rel="stylesheet" type="text/css" href="Master.css" />
+
+</head>
+
+
+
+
+<body>
+    <form id="form1" runat="server">
+
+    <div id="container">
+    
+    <div id="header">
+
+        <h1>BAIS Placement System 1.0</h1>
+
+    </div>
+
+    <div id="main">
+
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+            Main Content
+        </asp:ContentPlaceHolder>
+
+
+    </div>
+
+    
+    <div id="footer">
+
+        Footer Text
+
+    </div>
+
+    </div>
+    
+    </form>
+
+</body>
+
+</html>
