@@ -8,7 +8,7 @@
 #header {background:gold; 
          padding:20px; 
          margin:0 auto; 
-         border:1px black; 
+         border:1px solid black; 
          width:900px;
          text-align:center;
 
@@ -25,20 +25,23 @@
         padding-left: 20px; 
         padding-top: 20px;      
         padding-bottom: 10px; 
-        width: 1000px;      
-        height: 600px;
-        text-align:center; 
+        width: 900px;      
+        height: 700px;
+        text-align:center;
+        border-right:1px solid black;
+        border-left:1px solid black
 
 
 }
 
 
 
-#footer {background: gold; 
+#footer {background:gold; 
          color:black; 
          padding:10px; 
          margin:0 auto; 
          border:1px black; 
          width:920px;
+         border:1px solid black;
 
 }
