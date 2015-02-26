@@ -8,7 +8,7 @@
 
 
 
-
+    <div id="login">
 
     <p>
         <br />
@@ -21,7 +21,7 @@
         Password:&nbsp; <asp:TextBox ID="TextBox2" runat="server" BorderStyle="Inset" Width="185px"></asp:TextBox>
     </p>
 
-
+    </div>
 
 
 
