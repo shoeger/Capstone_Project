@@ -14,8 +14,8 @@
 
 }
 
-#Menu {background:white;
-       width: 580px;
+#Menu {background: white;
+       width: 630px;
        height: 30px;
        align-content: center;
        margin:0 auto;
@@ -24,7 +24,7 @@
        border-bottom:1px solid black;
        padding-top:15px;
        text-align: center;
-       padding-left: 360px;
+       padding-left: 310px;
 }
 
 #level1 { align-content: center;

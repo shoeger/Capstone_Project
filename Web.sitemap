@@ -3,6 +3,7 @@
     <siteMapNode url="" title="."  description="">
         <siteMapNode url="~/default.aspx" title="Home"  description="" />
         <siteMapNode url="~/Contact.aspx" title="Contact Us"  description="" />
-      <siteMapNode url="~/ViewPositions.aspx" title="View Positions"  description="" />
+      <siteMapNode url="~/ViewPositions.aspx" title="Search Positions"  description="" />
+      <siteMapNode url="~/ViewAccount.aspx" title="View Account"  description="" />
     </siteMapNode>
 </siteMap>
