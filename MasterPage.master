@@ -26,6 +26,20 @@
 
     </div>
 
+    <div id="Menu">
+
+         <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal">
+            
+            <LevelMenuItemStyles>
+            <asp:MenuItemStyle CssClass="level1"/>
+            </LevelMenuItemStyles>
+
+         </asp:Menu>
+
+         <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+
+    </div>
+
     <div id="main">
 
 

@@ -5,7 +5,7 @@
 
 
 
-#header {background:gold; 
+#header {background:white; 
          padding:20px; 
          margin:0 auto; 
          border:1px solid black; 
@@ -14,6 +14,21 @@
 
 }
 
+#Menu {background:white;
+       width: 580px;
+       height: 30px;
+       align-content: center;
+       margin:0 auto;
+       border-left:1px solid black;
+       border-right:1px solid black;
+       border-bottom:1px solid black;
+       padding-top:15px;
+       text-align: center;
+       padding-left: 360px;
+}
+
+#level1 { align-content: center;
+}
 
 
 #main {
@@ -26,7 +41,7 @@
         padding-top: 20px;      
         padding-bottom: 10px; 
         width: 900px;      
-        height: 700px;
+        height: 650px;
         text-align:center;
         border-right:1px solid black;
         border-left:1px solid black
@@ -36,7 +51,7 @@
 
 
 
-#footer {background:gold; 
+#footer {background:white; 
          color:black; 
          padding:10px; 
          margin:0 auto; 
