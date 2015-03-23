@@ -7,4 +7,8 @@ Partial Class login
         login1.Focus()
 
     End Sub
+
+    Protected Sub Login1_LoggedIn(sender As Object, e As EventArgs) Handles login1.LoggedIn
+
+    End Sub
 End Class
