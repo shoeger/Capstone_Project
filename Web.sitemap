@@ -5,6 +5,5 @@
         <siteMapNode url="~/Contact.aspx" title="Contact Us"  description="" />
       <siteMapNode url="~/ViewPositions.aspx" title="Search Positions"  description="" />
       <siteMapNode url="~/ViewAccount.aspx" title="View Account"  description="" />
-      <siteMapNode url="~/AddNewAccount.aspx" title="Create Account"  description="" />
     </siteMapNode>
 </siteMap>
