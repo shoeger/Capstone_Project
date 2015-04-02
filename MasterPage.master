@@ -24,7 +24,10 @@
 
         <h1>BAIS Placement System</h1>
 
+        <div id="login"> <asp:Button ID="ButtonLogIn" runat="server" Text="Log In" /> </div>
+
     </div>
+
 
     <div id="Menu">
 

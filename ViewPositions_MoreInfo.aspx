@@ -8,7 +8,9 @@
 
     <p>This page will display the rest of the information about the selected position that we do not have listed on the ViewPositions.aspx page. </p>
 
-
-
+    <p> <asp:DetailsView ID="DetailsView_MoreInfo" runat="server" Height="50px" Width="125px" DataSourceID="SqlDataSource_MoreInfo"></asp:DetailsView>  
+        <asp:SqlDataSource ID="SqlDataSource_MoreInfo" runat="server"></asp:SqlDataSource>
+    </p>
+  
 </asp:Content>
 
