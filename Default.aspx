@@ -7,6 +7,6 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    Page Content
+    <h3>Page Content</h3>
 </asp:Content>
 

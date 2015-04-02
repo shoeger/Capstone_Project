@@ -4,6 +4,7 @@
         <siteMapNode url="~/default.aspx" title="Home"  description="" />
         <siteMapNode url="~/Contact.aspx" title="Contact Us"  description="" />
       <siteMapNode url="~/ViewPositions.aspx" title="Search Positions"  description="" />
+      <siteMapNode url="~/AddPositions_Company.aspx" title="Add Position"  description="" />
       <siteMapNode url="~/ViewAccount.aspx" title="View Account"  description="" />
       <siteMapNode url="~/siteManager/default.aspx" title="Users"  description="" >
         <siteMapNode url="~/siteManager/add_user.aspx" title="Add User"  description="" />
