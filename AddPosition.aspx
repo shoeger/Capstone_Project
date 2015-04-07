@@ -150,29 +150,103 @@
             </asp:FormView>
             <br />
             <br />
-            <asp:Button CommandName="NextView" ID="ButtonCompany" runat="server" Text="Next" CssClass="Button" />
+            <asp:Button CommandName="NextView" ID="ButtonCompanyNext" runat="server" Text="Next" CssClass="Button" />
         </asp:View>
         <asp:View ID="PositionView" runat="server">
-
-                <asp:SqlDataSource ID="SqlDataSource_PositionType" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [POSITION_TYPE]"></asp:SqlDataSource>
+            
+            <asp:SqlDataSource ID="SqlDataSource_PositionType" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [POSITION_TYPE]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource_Position" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [POSITION] WHERE ([PositionTypeID] = @PositionTypeID)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="DropDownListPositionType" Name="PositionTypeID" PropertyName="SelectedValue" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
 
-            <p>
-                Select Position Type:
-                <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" Width="301px">
-                </asp:DropDownList>
-                <br />
-            </p>
-            <p>
-                Select Position Title:
-                <asp:DropDownList ID="DropDownListPositionName" runat="server" DataSourceID="SqlDataSource_Position" DataTextField="PositionName" DataValueField="PositionID" Width="300px">
-                </asp:DropDownList>
-            </p>
+            <table>
+                <tr>
+                    <td>Position Type:</td>
+                    <td><asp:RadioButton ID="RadioButtonFullTime" runat="server" Text=" Full Time" /><asp:RadioButton ID="RadioButtonInternship" runat="server" Text="Internship"/></td>
+                </tr>
+                <tr>
+                    <td>Select Position Type:</td>
+                    <td><asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" Width="301px">
+                </asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td>Select Position Title:</td>
+                    <td><asp:DropDownList ID="DropDownListPositionName" runat="server" DataSourceID="SqlDataSource_Position" DataTextField="PositionName" DataValueField="PositionID" Width="300px">
+                </asp:DropDownList></td>
+                </tr>
+            </table>
 
+            <asp:Button CommandName="NextView" ID="ButtonPositionNext" runat="server" Text="Next" CssClass="Button" />
+             
+        </asp:View>
+        <asp:View ID="PositionDetailsView" runat="server">
+            <asp:SqlDataSource ID="SqlDataSource_Major" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [MAJOR]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_Semester" runat="server"></asp:SqlDataSource>
+            <table>
+                <tr>
+                    <td>Major (Primary):</td>
+                    <td><asp:DropDownList ID="DropDownListMajorPrimary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID"></asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td>Major (Secondary):</td>
+                    <td><asp:DropDownList ID="DropDownListMajorSecondary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID"></asp:DropDownList></td>
+                </tr>
+                <tr>
+                    <td>Date Starting:</td>
+                    <td><asp:Calendar ID="CalendarStartDate" runat="server"></asp:Calendar></td>
+                </tr>
+                <tr>
+                    <td>Date Ending (if availabile):</td>
+                    <td><asp:Calendar ID="CalendarEndDate" runat="server"></asp:Calendar></td>
+                </tr>
+                <tr>
+                    <td>Contact First Name:</td>
+                    <td><asp:TextBox ID="TextBoxContactFirstName" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Contact Last Name:</td>
+                    <td><asp:TextBox ID="TextBoxContactLastName" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Contact Phone:</td>
+                    <td><asp:TextBox ID="TextBoxContactPhone" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Contact Email:</td>
+                    <td><asp:TextBox ID="TextBoxContactEmail" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Position Paid:</td>
+                    <td>
+                        <asp:RadioButton ID="RadioButtonInterPaid" runat="server" Text="Yes" /><asp:RadioButton ID="RadioButtonInternUnpaid" runat="server" Text="No" /></td>
+                </tr>
+                <tr>
+                    <td>Salary:</td>
+                    <td><asp:TextBox ID="TextBoxSalary" runat="server"></asp:TextBox></td>
+                </tr>
+            </table>
+            <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" CssClass="Button" />
+        </asp:View>
+        <asp:View ID="SkillsView" runat="server">
+            <asp:SqlDataSource ID="SqlDataSource_SkillType1" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 1"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_SkillType2" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 2"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_SkillType3" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 3"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_SkillType4" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 4"></asp:SqlDataSource>
+            <h2>Database Skills</h2>
+            <asp:CheckBoxList ID="CheckBoxListSkillType1" runat="server" DataSourceID="SqlDataSource_SkillType1" DataTextField="SkillName" DataValueField="SkillID">
+            </asp:CheckBoxList>
+            <h2>Language Tools Skills</h2>
+            <asp:CheckBoxList ID="CheckBoxListSkillType2" runat="server" DataSourceID="SqlDataSource_SkillType2" DataTextField="SkillName" DataValueField="SkillID">
+            </asp:CheckBoxList>
+            <h2>Operating Systems Skills</h2>
+            <asp:CheckBoxList ID="CheckBoxListSkillType3" runat="server" DataSourceID="SqlDataSource_SkillType3" DataTextField="SkillName" DataValueField="SkillID">
+            </asp:CheckBoxList>
+            <h2>Hardware Skills</h2>
+            <asp:CheckBoxList ID="CheckBoxListSkillType4" runat="server" DataSourceID="SqlDataSource_SkillType4" DataTextField="SkillName" DataValueField="SkillID">
+            </asp:CheckBoxList>
+            <asp:Button CommandName="NextView" ID="ButtonSkillsNext" runat="server" Text="Next" CssClass="Button" />
         </asp:View>
     </asp:MultiView>
         
