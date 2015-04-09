@@ -96,5 +96,13 @@ td.right_column {
 /* End Formview styling*/
 
 #AddSkillType {
-    padding-left: 350px;
+    padding-left: 320px;
+}
+
+#AddPositionType {
+    padding-left: 320px;
+}
+
+#AddPositionTitle {
+    padding-left: 320px;
 }
