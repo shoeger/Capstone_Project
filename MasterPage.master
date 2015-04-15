@@ -67,9 +67,24 @@
                         Copyright &copy; <asp:Label runat="server" ID="copyYear"></asp:Label> Henry B. Tippie College of Business - The University of Iowa
                     </div>
             </div>
-        </form>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="js/bootstrap.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                    //to fix collapse mode width issue
+                    $(".nav li,.nav li a,.nav li ul").removeAttr('style');
+
+                    //for dropdown menu
+                    $(".dropdown-menu").parent().removeClass().addClass('dropdown');
+                    $(".dropdown>a").removeClass().addClass('dropdown-toggle').append('<b class="caret"></b>').attr('data-toggle', 'dropdown');
+
+                    //remove default click redirect effect           
+                    $('.dropdown-toggle').attr('onclick', '').off('click');
+
+                });
+            </script>
+            <script src="js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="js/bootstrap.js"></script>
+        </form>
     </body>
 </html>
