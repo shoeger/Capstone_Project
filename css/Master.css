@@ -8,11 +8,21 @@ html {
 }
 
 body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
+    margin-bottom: 80px; /* Margin bottom by footer height */
 }
 
 #LoginStatus_Master {
     float:right;
+}
+
+.footer-break {
+    width:100%;
+}
+
+.footer {
+    height: 80px; 
+    position: absolute;
+    bottom:0;   
 }
 
 footer {

@@ -59,10 +59,10 @@
                     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                         Main Content
                     </asp:ContentPlaceHolder>
-
-                    <hr />
-        
+                    
                     <div class="footer">
+                        <hr class="footer-break"/>
+
                         Copyright &copy; <asp:Label runat="server" ID="copyYear"></asp:Label> Henry B. Tippie College of Business - The University of Iowa
                     </div>
             </div>
