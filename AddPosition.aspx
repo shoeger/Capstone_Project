@@ -20,14 +20,25 @@
             <asp:ControlParameter ControlID="DropDownListCompany1" Name="Name" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <h1>Add a New Position</h1>
-    <hr />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add a New Position</h1>
+        </div>
+    </div>
+
     <asp:MultiView ID="AddPositionMultiView" runat="server" ActiveViewIndex="0">
         <asp:View ID="CompanyView" runat="server">
-            <br />
-            <h4>Select a Company</h4> 
-            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="Name" class="form-control">
-            </asp:DropDownList>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Select a Company</label> 
+                            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="Name" class="form-control">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <br />
             <asp:FormView ID="FormView1" runat="server" DataKeyNames="CompanyID" DataSourceID="SqlDataSource_CompanyDetails">
                 <EditItemTemplate>

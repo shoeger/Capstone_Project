@@ -4,8 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <h3>Add Skill</h3>
-
+    <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Add a New Skill Type</h1>
+            </div>
+    </div>
 
     <div id="AddSkillType">
 

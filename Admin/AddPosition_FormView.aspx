@@ -4,7 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <h3>Add Position</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add a New Position Type</h1>
+        </div>
+    </div>
 
     <div id="AddPositionType">
 
@@ -61,7 +65,11 @@
 
     <br />
 
-    <h3>Add Position Title</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Add a New Position Title</h1>
+        </div>
+    </div>
 
     <div id="AddPositionTitle">
 

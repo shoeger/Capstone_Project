@@ -15,27 +15,10 @@ body {
     float:right;
 }
 
-.footer-break {
-    width:100%;
-}
-
 .footer {
     height: 80px; 
     position: absolute;
     bottom:0;   
-}
-
-footer {
-    height: 60px; /* .push must be the same height as .footer */
-    position: absolute;
-    bottom:0;   
-    background:black; 
-    color:white; 
-    padding:10px; 
-    margin:0 auto;
-    border:1px black; 
-    width:100%;
-    text-align:center;
 }
 
 .btn {
