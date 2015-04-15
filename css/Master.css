@@ -1,72 +1,50 @@
-﻿#conatiner {
-    min-height:900px;
-    padding-top:50px;
-    width:90%;
-    min-width:850px;
-    margin:auto;
+﻿* {
+    margin: 0;
 }
 
-#Menu {background: white;
-    width: 690px;
-    height: 30px;
-    align-content: center;
-    margin:0 auto;
-    border-left:1px solid black;
-    border-right:1px solid black;
-    border-bottom:1px solid black;
-    padding-top:15px;
-    text-align: center;
-    padding-left: 250px;
-    text-decoration-line: underline;
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 #LoginStatus_Master {
     float:right;
-    padding-right:100px;
 }
 
-#main {
-    clear:both;
-    background:white; 
-    margin:0 auto; 
-    border:1px black; 
-    align-content:center;
-    padding-right: 20px;     
-    padding-left: 20px; 
-    padding-top: 20px;      
-    padding-bottom: 10px; 
-    width: 900px;      
-    min-height: 650px;
-    text-align:center;
-    border-right:1px solid black;
-    border-left:1px solid black
-}
-
-
-
-#footer {
-    background:white; 
-    color:black; 
+footer {
+    height: 60px; /* .push must be the same height as .footer */
+    position: absolute;
+    bottom:0;   
+    background:black; 
+    color:white; 
     padding:10px; 
-    margin:0 auto; 
+    margin:0 auto;
     border:1px black; 
-    width:920px;
-    border:1px solid black;
+    width:100%;
+    text-align:center;
 }
 
-#h4 {font-weight: normal;
+.btn {
+    align-content:center;
 }
-
-
 
 /* Formview styling*/
+table {
+    margin-left:25px;
+}
+
 td.left_column {
     text-align:left;
-    padding:5px;
-    width:120px;
-    color:#FFFFFF;
-    font-weight:550;
-    background-color:#F08080;
+    padding-left:5px;
+    width:165px;
+    color:black;
+    font-weight:bold;
+    background-color:none;
+    vertical-align:top;
 }
 
 td.right_column {
@@ -81,8 +59,10 @@ td.right_column {
 }
 
 .label {
-    border:1px solid lightgray;
-    width:380px;
+    border:none;
+    color:black;
+    font-weight:normal;
+    font-size:1em;
 }
 
 /* End Formview styling*/
