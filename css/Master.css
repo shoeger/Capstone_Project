@@ -11,7 +11,7 @@ body {
     margin-bottom: 80px; /* Margin bottom by footer height */
 }
 
-#LoginStatus_Master {
+.login_status {
     float:right;
 }
 
