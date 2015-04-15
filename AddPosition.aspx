@@ -4,16 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <p>  &nbsp;</p>
-
     
     <asp:SqlDataSource ID="SqlDataSource_Company" runat="server" ConnectionString="<%$ ConnectionStrings:PlacementDB3ConnectionString %>" SelectCommand="SELECT [Name] FROM [COMPANY]"></asp:SqlDataSource>
         
-
-
-
-
-
     <asp:SqlDataSource ID="SqlDataSource_CompanyDetails" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" InsertCommand="INSERT INTO [COMPANY] ([Name], [Description], [Street], [City], [StateAbbrev], [ZipCode]) VALUES (@Name, @Description, @Street, @City, @StateAbbrev, @ZipCode)" SelectCommand="SELECT * FROM [COMPANY] WHERE ([Name] = @Name)">
         <InsertParameters>
             <asp:Parameter Name="Name" Type="String" />
@@ -27,18 +20,16 @@
             <asp:ControlParameter ControlID="DropDownListCompany1" Name="Name" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <br />
+    <h1>Add a New Position</h1>
+    <hr />
     <asp:MultiView ID="AddPositionMultiView" runat="server" ActiveViewIndex="0">
         <asp:View ID="CompanyView" runat="server">
             <br />
-            Select or Add A New Company
-            <br />
-            <br />
-            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="Name" Width="300px">
+            <h4>Select a Company</h4> 
+            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="Name" class="form-control">
             </asp:DropDownList>
             <br />
-            <br />
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="CompanyID" DataSourceID="SqlDataSource_CompanyDetails" HorizontalAlign="Center">
+            <asp:FormView ID="FormView1" runat="server" DataKeyNames="CompanyID" DataSourceID="SqlDataSource_CompanyDetails">
                 <EditItemTemplate>
                     CompanyID:
                     <asp:Label ID="CompanyIDLabel1" runat="server" Text='<%# Eval("CompanyID") %>' />
@@ -65,92 +56,120 @@
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <table>
-                        <tr>
-                            <td class="left_column">Name</td>
-                            <td class="right_column">
-                                <asp:TextBox ID="NameTextBox0" runat="server" CssClass="textbox" Text='<%# Bind("Name") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">Description</td>
-                            <td class="right_column">
-                                <asp:TextBox ID="DescriptionTextBox0" runat="server" CssClass="textbox" Text='<%# Bind("Description") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">Street</td>
-                            <td class="right_column">
-                                <asp:TextBox ID="StreetTextBox0" runat="server" CssClass="textbox" Text='<%# Bind("Street") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">City</td>
-                            <td class="right_column">
-                                <asp:TextBox ID="CityTextBox0" runat="server" CssClass="textbox" Text='<%# Bind("City") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">State</td>
-                            <td class="right_column">
-                                <asp:TextBox ID="StateAbbrevTextBox0" runat="server" CssClass="textbox" Text='<%# Bind("StateAbbrev") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">Zip Code</td>
-                            <td class="right_column">
-                                <asp:TextBox ID="ZipCodeTextBox0" runat="server" CssClass="textbox" Text='<%# Bind("ZipCode") %>' />
-                            </td>
-                        </tr>
-                    </table>
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
-                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Company Name:</label>
+                                    <asp:TextBox ID="NameTextBox" runat="server" class="form-control" Text='<%# Bind("Name") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Description:</label>
+                                    <asp:TextBox ID="DescriptionTextBox" runat="server" class="form-control" Text='<%# Bind("Description") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Street:</label>
+                                    <asp:TextBox ID="StreetTextBox" runat="server" class="form-control" Text='<%# Bind("Street") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>City:</label>
+                                    <asp:TextBox ID="CityTextBox" runat="server" class="form-control" Text='<%# Bind("City") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>State:</label>
+                                    <asp:TextBox ID="StateAbbrevTextBox" runat="server" class="form-control" Text='<%# Bind("StateAbbrev") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Zip Code:</label>
+                                     <asp:TextBox ID="ZipCodeTextBox" runat="server" class="form-control" Text='<%# Bind("ZipCode") %>' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrapper">
+                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" class="btn btn-default" /> &nbsp;
+                        <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" Class="btn btn-default" />
+                    </div>
+
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <table>
-                        <tr>
-                            <td class="left_column">Name</td>
-                            <td class="right_column">
-                                <asp:Label ID="NameLabel" runat="server" CssClass="label" Text='<%# Bind("Name") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">Description</td>
-                            <td class="right_column">
-                                <asp:Label ID="DescriptionLabel" runat="server" CssClass="label" Text='<%# Bind("Description") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">Street</td>
-                            <td class="right_column">
-                                <asp:Label ID="StreetLabel" runat="server" CssClass="label" Text='<%# Bind("Street") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">City</td>
-                            <td class="right_column">
-                                <asp:Label ID="CityLabel" runat="server" CssClass="label" Text='<%# Bind("City") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">State</td>
-                            <td class="right_column">
-                                <asp:Label ID="StateAbbrevLabel" runat="server" CssClass="label" Text='<%# Bind("StateAbbrev") %>' />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="left_column">Zip Code</td>
-                            <td class="right_column">
-                                <asp:Label ID="ZipCodeLabel" runat="server" CssClass="label" Text='<%# Bind("ZipCode") %>' />
-                            </td>
-                        </tr>
-                    </table>
-                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="New" />
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Company Name:</label>
+                                    <asp:Label ID="NameLabel" runat="server" class="form-control" Text='<%# Bind("Name") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Description:</label>
+                                    <asp:Label ID="DescriptionLabel" runat="server" class="form-control" Text='<%# Bind("Description") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Street:</label>
+                                    <asp:Label ID="StreetLabel" runat="server" class="form-control" Text='<%# Bind("Street") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>City:</label>
+                                    <asp:Label ID="CityLabel" runat="server" class="form-control" Text='<%# Bind("City") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>State:</label>
+                                    <asp:Label ID="StateAbbrevLabel" runat="server" class="form-control" Text='<%# Bind("StateAbbrev") %>' />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Zip Code:</label>
+                                     <asp:Label ID="ZipCodeLabel" runat="server" class="form-control" Text='<%# Bind("ZipCode") %>' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" class="btn btn-default" />
                 </ItemTemplate>
             </asp:FormView>
             <br />
             <br />
-            <asp:Button CommandName="NextView" ID="ButtonCompanyNext" runat="server" Text="Next" CssClass="Button" />
+            <asp:Button CommandName="NextView" ID="ButtonCompanyNext" runat="server" Text="Next" class="btn btn-primary" />
         </asp:View>
         <asp:View ID="PositionView" runat="server">
             
@@ -161,24 +180,41 @@
                 </SelectParameters>
             </asp:SqlDataSource>
 
-            <table>
-                <tr>
-                    <td>Position Type:</td>
-                    <td><asp:RadioButton ID="RadioButtonFullTime" runat="server" Text=" Full Time" /><asp:RadioButton ID="RadioButtonInternship" runat="server" Text="Internship"/></td>
-                </tr>
-                <tr>
-                    <td>Select Position Type:</td>
-                    <td><asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" Width="301px">
-                </asp:DropDownList></td>
-                </tr>
-                <tr>
-                    <td>Select Position Title:</td>
-                    <td><asp:DropDownList ID="DropDownListPositionName" runat="server" DataSourceID="SqlDataSource_Position" DataTextField="PositionName" DataValueField="PositionID" Width="300px">
-                </asp:DropDownList></td>
-                </tr>
-            </table>
+            <div class="row">
+                <div class="col-md-8">
+                    <label for="jobType" class="control-label input-group">Select a Job Type:</label>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input name="jobType" value="F" type="radio">Full Time
+                        </label>
+                        <label class="btn btn-default">
+                            <input name="jobType" value="I" type="radio">Intership
+                        </label>
+                    </div> 
+                </div> 
+                
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Select Position Type:</label>
+                            <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" class="form-control"></asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
 
-            <asp:Button CommandName="NextView" ID="ButtonPositionNext" runat="server" Text="Next" CssClass="Button" />
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Select Position Title:</label>
+                            <asp:DropDownList ID="DropDownListPositionName" runat="server" DataSourceID="SqlDataSource_Position" DataTextField="PositionName" DataValueField="PositionID" class="form-control"></asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <asp:Button CommandName="PrevView" ID="ButtonPositionPrev" runat="server" Text="Previous" class="btn btn-primary" />
+            <asp:Button CommandName="NextView" ID="ButtonPositionNext" runat="server" Text="Next" class="btn btn-primary" />
              
         </asp:View>
         <asp:View ID="PositionDetailsView" runat="server">
@@ -227,7 +263,10 @@
                     <td><asp:TextBox ID="TextBoxSalary" runat="server"></asp:TextBox></td>
                 </tr>
             </table>
-            <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" CssClass="Button" />
+            <br />
+            <br />
+            <asp:Button CommandName="PrevView" ID="ButtonPositionDetailsPrev" runat="server" Text="Previous" class="btn btn-primary" />
+            <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" class="btn btn-primary" />
         </asp:View>
         <asp:View ID="SkillsView" runat="server">
             <asp:SqlDataSource ID="SqlDataSource_SkillType1" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 1"></asp:SqlDataSource>
@@ -246,7 +285,10 @@
             <h2>Hardware Skills</h2>
             <asp:CheckBoxList ID="CheckBoxListSkillType4" runat="server" DataSourceID="SqlDataSource_SkillType4" DataTextField="SkillName" DataValueField="SkillID">
             </asp:CheckBoxList>
-            <asp:Button CommandName="NextView" ID="ButtonSkillsNext" runat="server" Text="Next" CssClass="Button" />
+            <br />
+            <br />
+            <asp:Button CommandName="PrevView" ID="ButtonSkillsPrev" runat="server" Text="Previous" class="btn btn-primary" />
+            <asp:Button CommandName="NextView" ID="ButtonSkillsNext" runat="server" Text="Next" class="btn btn-primary" />
         </asp:View>
     </asp:MultiView>
         
