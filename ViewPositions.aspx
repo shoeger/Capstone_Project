@@ -4,7 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <h3>View Positions</h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Student Placements</h1>
+        </div>
+    </div>
+  
 
     <p>The More Info link does not work yet. We need to decide what we want to display on each page.</p>
 
