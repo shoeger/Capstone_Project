@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="AddPosition.aspx.vb" Inherits="AddPositions_Company" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"> 
+    Add Postion
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="head2" runat="server">
+    <link href="css/bootstrap-datepicker.css" rel="stylesheet" type="text/css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -231,53 +235,115 @@
         <asp:View ID="PositionDetailsView" runat="server">
             <asp:SqlDataSource ID="SqlDataSource_Major" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [MAJOR]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource_Semester" runat="server"></asp:SqlDataSource>
-            <table>
-                <tr>
-                    <td>Major (Primary):</td>
-                    <td><asp:DropDownList ID="DropDownListMajorPrimary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID"></asp:DropDownList></td>
-                </tr>
-                <tr>
-                    <td>Major (Secondary):</td>
-                    <td><asp:DropDownList ID="DropDownListMajorSecondary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID"></asp:DropDownList></td>
-                </tr>
-                <tr>
-                    <td>Date Starting:</td>
-                    <td><asp:Calendar ID="CalendarStartDate" runat="server"></asp:Calendar></td>
-                </tr>
-                <tr>
-                    <td>Date Ending (if availabile):</td>
-                    <td><asp:Calendar ID="CalendarEndDate" runat="server"></asp:Calendar></td>
-                </tr>
-                <tr>
-                    <td>Contact First Name:</td>
-                    <td><asp:TextBox ID="TextBoxContactFirstName" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td>Contact Last Name:</td>
-                    <td><asp:TextBox ID="TextBoxContactLastName" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td>Contact Phone:</td>
-                    <td><asp:TextBox ID="TextBoxContactPhone" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td>Contact Email:</td>
-                    <td><asp:TextBox ID="TextBoxContactEmail" runat="server"></asp:TextBox></td>
-                </tr>
-                <tr>
-                    <td>Position Paid:</td>
-                    <td>
-                        <asp:RadioButton ID="RadioButtonInterPaid" runat="server" Text="Yes" /><asp:RadioButton ID="RadioButtonInternUnpaid" runat="server" Text="No" /></td>
-                </tr>
-                <tr>
-                    <td>Salary:</td>
-                    <td><asp:TextBox ID="TextBoxSalary" runat="server"></asp:TextBox></td>
-                </tr>
-            </table>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Major (Primary):</label>
+                            <asp:DropDownList ID="DropDownListMajorPrimary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" class="form-control"></asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Major (Secondary):</label>
+                            <asp:DropDownList ID="DropDownListMajorSecondary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" class="form-control"></asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Date Starting:</label>
+                            <div id="datepickerStart" class="input-group date">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Date Ending (if availabile):</label>
+                            <div id="datepickerEnd" class="input-group date">
+                                <input type="text" class="form-control" />
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Contact First Name:</label>
+                            <asp:TextBox ID="TextBoxContactFirstName" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Contact Last Name:</label>
+                            <asp:TextBox ID="TextBoxContactLastName" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Contact Phone:</label>
+                            <asp:TextBox ID="TextBoxContactPhone" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Contact Email:</label>
+                            <td><asp:TextBox ID="TextBoxContactEmail" runat="server" class="form-control"></asp:TextBox></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <label for="jobPaid" class="control-label input-group">Position Paid:</label>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default"><input name="jobPaid" value="Y" type="radio" />Yes</label>
+                        <label class="btn btn-default"><input name="jobPaid" value="N" type="radio" />No</label>
+                    </div> 
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Select Position Type:</label>
+                            <asp:TextBox ID="TextBoxSalary" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <br />
             <br />
             <asp:Button CommandName="PrevView" ID="ButtonPositionDetailsPrev" runat="server" Text="Previous" class="btn btn-primary" />
             <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" class="btn btn-primary" />
+
         </asp:View>
         <asp:View ID="SkillsView" runat="server">
             <asp:SqlDataSource ID="SqlDataSource_SkillType1" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 1"></asp:SqlDataSource>
@@ -302,11 +368,15 @@
             <asp:Button CommandName="NextView" ID="ButtonSkillsNext" runat="server" Text="Next" class="btn btn-primary" />
         </asp:View>
     </asp:MultiView>
-        
-
-
-
-
 
 </asp:Content>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script>
+        $('.input-group.date').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+    </script>
+</asp:Content>
