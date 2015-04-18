@@ -332,7 +332,7 @@
                 <div class="col-md-8">
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Select Position Type:</label>
+                            <label>Salary:</label>
                             <asp:TextBox ID="TextBoxSalary" runat="server" class="form-control"></asp:TextBox>
                         </div>
                     </div>
