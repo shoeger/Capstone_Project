@@ -23,7 +23,7 @@ Partial Class MasterPage
             Dim menuItems As MenuItemCollection = menu_Master.Items
             Dim adminItem As New MenuItem()
             For Each MenuItem As MenuItem In menuItems
-                If MenuItem.Value = "Manage Placements" Then
+                If MenuItem.Value = "Admin Tools" Then
                     adminItem = MenuItem
                 End If
             Next

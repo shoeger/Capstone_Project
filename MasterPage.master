@@ -27,7 +27,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="/Default.aspx" class="navbar-brand">BAIS Placement System</a>
+                        <a href="~/Default.aspx" class="navbar-brand">BAIS Placement System</a>
                     </div>
                 <!-- Everything you want hidden at 940px or less, place within here -->
                     <div id="navbar" class="navbar-collapse collapse">
@@ -37,9 +37,9 @@
                                 <asp:MenuItem Text="Add Placement" Value="Add Placement" navigateUrl="~/AddPosition.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Placements" Value="View Placements" navigateUrl="~/ViewPositions.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="My Account" Value="My Account" navigateUrl="~/ViewAccount.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Manage Placements" Value="Manage Placements" NavigateUrl="#">
-                                    <asp:MenuItem Text="Add Positions" Value="Add Positions" navigateUrl="~/Admin/AddPosition_FormView.aspx" />
-                                    <asp:MenuItem Text="Add Skills" Value="Add Skills" navigateUrl="~/Admin/AddSkill_FormView.aspx" />
+                                <asp:MenuItem Text="Admin Tools" Value="Admin Tools" NavigateUrl="#">
+                                    <asp:MenuItem Text="Manage Positions" Value="Manage Positions" navigateUrl="~/Admin/AddPosition_FormView.aspx" />
+                                    <asp:MenuItem Text="Manage Skills" Value="Manage Skills" navigateUrl="~/Admin/AddSkill_FormView.aspx" />
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Manage Users" Value="Manage Users" NavigateUrl="#">
                                     <asp:MenuItem Text="Add User" Value="Add User" navigateUrl="~/siteManager/add_user.aspx" />
