@@ -26,36 +26,9 @@ body {
 }
 
 /* Formview styling*/
-table {
-    margin-left:25px;
-}
-
-td.left_column {
-    text-align:left;
-    padding-left:5px;
-    width:165px;
-    color:black;
-    font-weight:bold;
-    background-color:none;
-    vertical-align:top;
-}
-
-td.right_column {
-    text-align:left;
-    padding-left:5px;
-    width:390px;
-}
-
-.textbox {
-    border:1px solid lightgray;
-    width:380px;
-}
-
-.label {
-    border:none;
-    color:black;
-    font-weight:normal;
-    font-size:1em;
+.formview {
+    margin-left:0;
+    padding-left:0;
 }
 
 /* End Formview styling*/
