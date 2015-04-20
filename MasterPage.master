@@ -36,7 +36,7 @@
                             <Items>
                                 <asp:MenuItem Text="Home" Value="Home" navigateUrl="~/Default.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Add Placement" Value="Add Placement" navigateUrl="~/AddPosition.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Placements" Value="View Placements" navigateUrl="~/ViewPositions.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Placements" Value="View Placements" navigateUrl="~/ViewPlacements.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="My Account" Value="My Account" navigateUrl="~/ViewAccount.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Admin Tools" Value="Admin Tools" NavigateUrl="#">
                                     <asp:MenuItem Text="Manage Positions" Value="Manage Positions" navigateUrl="~/Admin/AddPosition_FormView.aspx" />

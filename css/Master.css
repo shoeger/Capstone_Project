@@ -71,3 +71,7 @@ td.right_column {
 #AddPositionTitle {
     padding-left: 320px;
 }
+
+.table {
+    margin-left:0;
+}
