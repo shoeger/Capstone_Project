@@ -35,12 +35,12 @@
                         <asp:Menu ID="menu_Master" runat="server" EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical" StaticMenuStyle-CssClass="nav navbar-nav" StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown dropdown-menu" OnPreRender="menu_Master_PreRender" OnMenuItemClick="menu_Master_MenuItemClick">
                             <Items>
                                 <asp:MenuItem Text="Home" Value="Home" navigateUrl="~/Default.aspx"></asp:MenuItem>
-                                <asp:MenuItem Text="Add Placement" Value="Add Placement" navigateUrl="~/AddPosition.aspx"></asp:MenuItem>
+                                <asp:MenuItem Text="Add Placement" Value="Add Placement" navigateUrl="~/AddPlacement.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Placements" Value="View Placements" navigateUrl="~/ViewPlacements.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="My Account" Value="My Account" navigateUrl="~/ViewAccount.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Admin Tools" Value="Admin Tools" NavigateUrl="#">
-                                    <asp:MenuItem Text="Manage Positions" Value="Manage Positions" navigateUrl="~/Admin/AddPosition_FormView.aspx" />
-                                    <asp:MenuItem Text="Manage Skills" Value="Manage Skills" navigateUrl="~/Admin/AddSkill_FormView.aspx" />
+                                    <asp:MenuItem Text="Manage Positions" Value="Manage Positions" navigateUrl="~/Admin/ManagePositionTypes.aspx" />
+                                    <asp:MenuItem Text="Manage Skills" Value="Manage Skills" navigateUrl="~/Admin/ManageSkills.aspx" />
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Manage Users" Value="Manage Users" NavigateUrl="#">
                                     <asp:MenuItem Text="Add User" Value="Add User" navigateUrl="~/siteManager/add_user.aspx" />

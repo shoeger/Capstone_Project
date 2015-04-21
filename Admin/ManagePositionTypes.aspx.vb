@@ -1,5 +1,5 @@
 ﻿
-Partial Class Admin_AddSkill_FormView
+Partial Class ManagePositionTypes
     Inherits System.Web.UI.Page
 
 End Class

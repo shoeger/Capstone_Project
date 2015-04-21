@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="AddPosition.aspx.vb" Inherits="AddPositions_Company" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="AddPlacement.aspx.vb" Inherits="AddPlacement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"> 
     Add Postion
