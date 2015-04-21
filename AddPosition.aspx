@@ -9,12 +9,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     
-    <asp:SqlDataSource ID="SqlDataSource_Company" runat="server" ConnectionString="<%$ ConnectionStrings:PlacementDB3ConnectionString %>" SelectCommand="SELECT * FROM [COMPANY]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource_Company" runat="server" ConnectionString="<%$ ConnectionStrings:PlacementDB3ConnectionString %>" SelectCommand="SELECT * FROM [COMPANY] ORDER BY Name"></asp:SqlDataSource>
         
-    <asp:SqlDataSource ID="SqlDataSource_CompanyDetails" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [COMPANY] WHERE ([CompanyID] = @CompanyID)">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownListCompany1" Name="CompanyID" PropertyName="SelectedValue" Type="Int32" />
-        </SelectParameters>
+    <asp:SqlDataSource ID="SqlDataSource_CompanyDetails" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [COMPANY]" DeleteCommand="DELETE FROM [COMPANY] WHERE [CompanyID] = @CompanyID" InsertCommand="INSERT INTO [COMPANY] ([Name], [Industry]) VALUES (@Name, @Industry)" UpdateCommand="UPDATE [COMPANY] SET [Name] = @Name, [Industry] = @Industry WHERE [CompanyID] = @CompanyID">
+        <DeleteParameters>
+            <asp:Parameter Name="CompanyID" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="Industry" Type="String" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="Name" Type="String" />
+            <asp:Parameter Name="Industry" Type="String" />
+            <asp:Parameter Name="CompanyID" Type="Int32" />
+        </UpdateParameters>
     </asp:SqlDataSource>
     <div class="row">
         <div class="col-lg-12">
@@ -29,51 +38,72 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Select a Company</label> 
-                            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="CompanyID" class="form-control">
+                            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="CompanyID" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:ListItem Text="-- Select a Company --" Value=""></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-8">
+                     <asp:FormView ID="FormView1" runat="server" DataKeyNames="CompanyID" DataSourceID="SqlDataSource_CompanyDetails" Width="100%">
+                        <InsertItemTemplate>
+                            <div role="form">
+                                <div class="form-group">
+                                    <label>Company Name:</label>
+                                    <asp:TextBox ID="NameTextBox" runat="server" CssClass="form-control" Text='<%# Bind("Name") %>' />
+                                </div>
+                                <div class="form-group">
+                                    <label>Industry:</label>
+                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" Text='<%# Bind("Industry")%>' />
+                                </div>
+                                <div class="form-group">
+                                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-default" /> &nbsp;
+                                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-default" />
+                                </div> 
+                            </div>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <div role="form">
+                                <div class="form-group">
+                                    <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" CssClass="btn btn-default" />
+                                </div>
+                            </div>  
+                        </ItemTemplate>
+                    </asp:FormView>
+                </div>
+            </div>
             <br />
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="CompanyID" DataSourceID="SqlDataSource_CompanyDetails" Width="100%">
-                <InsertItemTemplate>
-                    <div role="form" class="row col-md-8">
-                        <div class="form-group">
-                            <label>Company Name:</label>
-                            <asp:TextBox ID="NameTextBox" runat="server" class="form-control" Text='<%# Bind("Name") %>' />
+            <div class="row">
+                <div class="col-md-8">
+                    <label><u>Placement Location</u></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>City:</label>
+                            <asp:TextBox ID="TextBoxCity" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
                         </div>
-                        <div class="form-group">
-                            <label>Industry:</label>
-                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" Text='<%# Bind("Industry")%>' />
-                        </div>
-                    </div>  
-                    <div class="row col-md-8">
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" class="btn btn-default" /> &nbsp;
-                        <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" Class="btn btn-default" />
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>State:</label>
+                            <asp:DropDownList ID="DropDownListStates" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:ListItem Text="-- Select a State --" Value=""></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <div role="form" class="row col-md-8">
-                        <div class="form-group">
-                            <label>Company Name:</label>
-                            <asp:Label ID="NameLabel" runat="server" class="form-control" Text='<%# Bind("Name") %>' />
-                        </div>
-                        <div class="form-group">
-                            <label>Industry:</label>
-                            <asp:Label ID="Label1" runat="server" class="form-control" Text='<%# Bind("Industry")%>' />
-                        </div>
-                    </div>  
-                    
-                    <div class="row col-md-8">
-                        <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Add New" class="btn btn-default" />
-                    </div>
-                </ItemTemplate>
-            </asp:FormView>
-            <br />
-            <br />
-            <asp:Button CommandName="NextView" ID="ButtonCompanyNext" runat="server" Text="Next" class="btn btn-primary" />
+            <asp:Button CommandName="NextView" ID="ButtonCompanyNext" runat="server" Text="Next" CssClass="btn btn-primary" />
         </asp:View>
         <asp:View ID="PositionView" runat="server">
             
@@ -84,10 +114,10 @@
                     <label for="jobType" class="control-label input-group">Select a Job Type:</label>
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default">
-                            <input name="jobType" value="F" type="radio" />Full Time
+                            <input id="radioJobTypeF" name="jobType" value="F" type="radio" runat="server" />Full Time
                         </label>
                         <label class="btn btn-default">
-                            <input name="jobType" value="I" type="radio" />Intership
+                            <input id="radioJobTypeI" name="jobType" value="I" type="radio" runat="server" />Intership
                         </label>
                     </div> 
                 </div> 
@@ -95,32 +125,34 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Select Position Type:</label>
-                        <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" class="form-control"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control"></asp:DropDownList>
                     </div>
                 </div>
 
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Select Position Title:</label>
-                        <asp:TextBox ID="PositionName" runat="server" class="form-control"></asp:TextBox>
+                        <asp:TextBox ID="PositionName" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                 </div>
             </div>
             <div class="row col-md-8">
-                <asp:Button CommandName="PrevView" ID="ButtonPositionPrev" runat="server" Text="Previous" class="btn btn-primary" />
-                <asp:Button CommandName="NextView" ID="ButtonPositionNext" runat="server" Text="Next" class="btn btn-primary" />
+                <asp:Button CommandName="PrevView" ID="ButtonPositionPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
+                <asp:Button CommandName="NextView" ID="ButtonPositionNext" runat="server" Text="Next" CssClass="btn btn-primary" />
              </div>
 
         </asp:View>
         <asp:View ID="PositionDetailsView" runat="server">
             <asp:SqlDataSource ID="SqlDataSource_Major" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [MAJOR]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource_Semester" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource_Students" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [STUDENT]"></asp:SqlDataSource>
             <div class="row">
                 <div class="col-md-8">
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Major (Primary):</label>
-                            <asp:DropDownList ID="DropDownListMajorPrimary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" class="form-control"></asp:DropDownList>
+                            <label>Student ID:</label>
+                            <asp:DropDownList ID="DropDownListStudents" runat="server" DataSourceID="SqlDataSource_Students" DataTextField="StudentID" DataValueField="StudentID" CssClass="form-control" AppendDataBoundItems="True">
+                                <asp:ListItem Text="-- Select your ID --" Value=""></asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -129,8 +161,22 @@
                 <div class="col-md-8">
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Major (Secondary):</label>
-                            <asp:DropDownList ID="DropDownListMajorSecondary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" class="form-control"></asp:DropDownList>
+                            <label>Major (Primary):</label>
+                            <asp:DropDownList ID="DropDownListMajorPrimary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:ListItem Text="-- Select a Primary Major --" Value=""></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Major (Secondary, if applicable):</label>
+                            <asp:DropDownList ID="DropDownListMajorSecondary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:ListItem Text="-- Select a Secondary Major --" Value=""></asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                 </div>
@@ -141,7 +187,7 @@
                         <div class="controls">
                             <label>Date Starting:</label>
                             <div id="datepickerStart" class="input-group date">
-                                <input type="text" class="form-control" />
+                                <input id="labelStartDate" type="text" class="form-control" runat="server"/>
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </div>
@@ -152,7 +198,7 @@
                         <div class="controls">
                             <label>Date Ending (if availabile):</label>
                             <div id="datepickerEnd" class="input-group date">
-                                <input type="text" class="form-control" />
+                                <input id="labelEndDate" type="text" class="form-control" runat="server"/>
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </div>
@@ -164,7 +210,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Contact First Name:</label>
-                            <asp:TextBox ID="TextBoxContactFirstName" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxContactFirstName" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -174,7 +220,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Contact Last Name:</label>
-                            <asp:TextBox ID="TextBoxContactLastName" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxContactLastName" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -184,7 +230,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Contact Phone:</label>
-                            <asp:TextBox ID="TextBoxContactPhone" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxContactPhone" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -194,18 +240,22 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Contact Email:</label>
-                            <td><asp:TextBox ID="TextBoxContactEmail" runat="server" class="form-control"></asp:TextBox></td>
+                            <asp:TextBox ID="TextBoxContactEmail" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <label for="jobPaid" class="control-label input-group">Position Paid:</label>
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn btn-default"><input name="jobPaid" value="Y" type="radio" />Yes</label>
-                        <label class="btn btn-default"><input name="jobPaid" value="N" type="radio" />No</label>
-                    </div> 
+                    <div class="control-group form-group">
+                        <div id="controls">
+                            <label for="jobPaid" class="control-label input-group">Position Paid:</label>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default"><input name="jobPaid" value="Y" type="radio" />Yes</label>
+                                <label class="btn btn-default"><input name="jobPaid" value="N" type="radio" />No</label>
+                            </div> 
+                        </div>
+                    </div>
                 </div> 
             </div>
             <div class="row">
@@ -213,7 +263,17 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Salary:</label>
-                            <asp:TextBox ID="TextBoxSalary" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxSalary" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Responsibilities:</label>
+                            <asp:TextBox ID="TextBoxResponsibility" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -221,8 +281,8 @@
 
             <br />
             <br />
-            <asp:Button CommandName="PrevView" ID="ButtonPositionDetailsPrev" runat="server" Text="Previous" class="btn btn-primary" />
-            <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" class="btn btn-primary" />
+            <asp:Button CommandName="PrevView" ID="ButtonPositionDetailsPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
+            <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" CssClass="btn btn-primary" />
 
         </asp:View>
         <asp:View ID="SkillsView" runat="server">
@@ -244,8 +304,8 @@
             </asp:CheckBoxList>
             <br />
             <br />
-            <asp:Button CommandName="PrevView" ID="ButtonSkillsPrev" runat="server" Text="Previous" class="btn btn-primary" />
-            <asp:Button CommandName="NextView" ID="ButtonSkillsNext" runat="server" Text="Next" class="btn btn-primary" />
+            <asp:Button CommandName="PrevView" ID="ButtonSkillsPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
+            <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
         </asp:View>
     </asp:MultiView>
 

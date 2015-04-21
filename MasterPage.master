@@ -32,7 +32,7 @@
                     </div>
                 <!-- Everything you want hidden at 940px or less, place within here -->
                     <div id="navbar" class="navbar-collapse collapse">
-                        <asp:Menu ID="menu_Master" runat="server" EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical" StaticMenuStyle-CssClass="nav navbar-nav" StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown-menu" OnPreRender="menu_Master_PreRender" OnMenuItemClick="menu_Master_MenuItemClick">
+                        <asp:Menu ID="menu_Master" runat="server" EnableViewState="false" IncludeStyleBlock="false" Orientation="Vertical" StaticMenuStyle-CssClass="nav navbar-nav" StaticSelectedStyle-CssClass="active" DynamicMenuStyle-CssClass="dropdown dropdown-menu" OnPreRender="menu_Master_PreRender" OnMenuItemClick="menu_Master_MenuItemClick">
                             <Items>
                                 <asp:MenuItem Text="Home" Value="Home" navigateUrl="~/Default.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Add Placement" Value="Add Placement" navigateUrl="~/AddPosition.aspx"></asp:MenuItem>
