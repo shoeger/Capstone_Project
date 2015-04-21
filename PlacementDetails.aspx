@@ -123,7 +123,7 @@
                 </div>
                 <div class="form-group">
                     <label>Responsibilities:</label>
-                    <asp:Label ID="ResponsibilityLabel" runat="server" CssClass="form-control" Text='<%# Bind("Responsibility") %>' />
+                    <asp:TextBox ID="ResponsibilityLabel" runat="server" CssClass="form-control" Text='<%# Bind("Responsibility") %>' TextMode="MultiLine" ReadOnly="True" BackColor="White" />
                 </div>
             </div>
         </ItemTemplate>
