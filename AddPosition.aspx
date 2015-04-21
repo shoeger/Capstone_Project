@@ -125,7 +125,9 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label>Select Position Type:</label>
-                        <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control"></asp:DropDownList>
+                        <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control" AppendDataBoundItems="true">
+                                <asp:ListItem Text="-- Select a Position Type --" Value=""></asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
 
@@ -150,7 +152,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Student ID:</label>
-                            <asp:DropDownList ID="DropDownListStudents" runat="server" DataSourceID="SqlDataSource_Students" DataTextField="StudentID" DataValueField="StudentID" CssClass="form-control" AppendDataBoundItems="True">
+                            <asp:DropDownList ID="DropDownListStudents" runat="server" CssClass="form-control" AppendDataBoundItems="True" DataSourceID="SqlDataSource_Students" DataTextField="StudentID" DataValueField="StudentID">
                                 <asp:ListItem Text="-- Select your ID --" Value=""></asp:ListItem>
                             </asp:DropDownList>
                         </div>

@@ -27,7 +27,7 @@ Partial Class AddPositions_Company
         Dim companyID As Integer = DropDownListCompany1.SelectedValue
         Dim positionTypeID As Integer = DropDownListPositionType.SelectedValue
         Dim positionTitle As String = PositionName.Text.ToString
-        Dim studentID As String = DropDownListStudents.SelectedItem.ToString
+        Dim studentID As String = DropDownListStudents.SelectedValue
         Dim jobType As String
         Dim startDate As Date = labelStartDate.Value
         Dim endDate As Date = labelEndDate.Value
