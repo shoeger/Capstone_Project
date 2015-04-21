@@ -12,7 +12,9 @@
     </div>
 
     <div class="row">
-        <asp:Login ID="Login1" runat="server" FailureTextStyle-CssClass="alert" LoginButtonStyle-CssClass="btn btn-primary btn-block" TextBoxStyle-CssClass="form-control" TitleText="" LabelStyle-CssClass="pull-left" CheckBoxStyle-CssClass="checkbox-inline" CssClass="pull-left"></asp:Login>
+        <div class="col-lg-12">
+            <asp:Login ID="Login1" runat="server" FailureTextStyle-CssClass="alert" LoginButtonStyle-CssClass="btn btn-primary btn-block" TextBoxStyle-CssClass="form-control" TitleText="" LabelStyle-CssClass="pull-left" CheckBoxStyle-CssClass="checkbox-inline" CssClass="pull-left"></asp:Login>
+        </div>
     </div>
 
 </asp:Content>
