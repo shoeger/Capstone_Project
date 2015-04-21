@@ -8,6 +8,12 @@
         <div class="col-lg-12">
             <h1 class="page-header">Student Placements</h1>
         </div>
+        <p> Enter Search:
+        <asp:TextBox ID="searchTextbox" runat="server" Width="245px"></asp:TextBox>
+&nbsp;
+        <asp:Button ID="searchButton" runat="server" Text="Search" />
+    &nbsp;&nbsp;
+        </p>
     </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID"></asp:SqlDataSource>

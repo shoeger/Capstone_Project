@@ -12,4 +12,14 @@ Partial Class ViewPlacements
             End If
         End If
     End Sub
+
+    Protected Sub searchTextbox_TextChanged(sender As Object, e As EventArgs) Handles searchTextbox.TextChanged
+
+        Dim searchword As String
+
+        searchword = "SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID where (JobType Like '%" + searchTextbox.Text.ToString() + "%')"
+
+        SqlDataSource1.SelectCommand = searchword
+
+    End Sub
 End Class
