@@ -33,6 +33,24 @@ body {
 
 /* End Formview styling*/
 
+/* CheckBoxList styling */
+
+.checkboxList {
+    width:60%;
+    min-width:600px;
+    margin-top:20px;
+}
+
+.checkboxList tr {
+   height:25px;
+}
+
+.checkboxList td {
+   width:33%; /* or percent value: 25% */
+}
+
+/* End CheckBoxList styling */
+
 #AddSkillType {
     padding-left: 320px;
 }
