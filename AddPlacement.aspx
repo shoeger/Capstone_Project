@@ -145,7 +145,6 @@
 
         </asp:View>
         <asp:View ID="PositionDetailsView" runat="server">
-            <asp:SqlDataSource ID="SqlDataSource_Major" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [MAJOR]"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource_Students" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM [STUDENT]"></asp:SqlDataSource>
             <div class="row">
                 <div class="col-md-8">
@@ -154,30 +153,6 @@
                             <label>Student ID:</label>
                             <asp:DropDownList ID="DropDownListStudents" runat="server" CssClass="form-control" AppendDataBoundItems="True" DataSourceID="SqlDataSource_Students" DataTextField="StudentID" DataValueField="StudentID">
                                 <asp:ListItem Text="-- Select your ID --" Value=""></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Major (Primary):</label>
-                            <asp:DropDownList ID="DropDownListMajorPrimary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" CssClass="form-control" AppendDataBoundItems="true">
-                                <asp:ListItem Text="-- Select a Primary Major --" Value=""></asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <label>Major (Secondary, if applicable):</label>
-                            <asp:DropDownList ID="DropDownListMajorSecondary" runat="server" DataSourceID="SqlDataSource_Major" DataTextField="MajorName" DataValueField="MajorID" CssClass="form-control" AppendDataBoundItems="true">
-                                <asp:ListItem Text="-- Select a Secondary Major --" Value=""></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -280,12 +255,13 @@
                     </div>
                 </div>
             </div>
-
             <br />
-            <br />
-            <asp:Button CommandName="PrevView" ID="ButtonPositionDetailsPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
-            <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" CssClass="btn btn-primary" />
-
+            <div class="row">
+                <div class="col-md-8">
+                    <asp:Button CommandName="PrevView" ID="ButtonPositionDetailsPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
+                    <asp:Button CommandName="NextView" ID="ButtonPositionDetailsNext" runat="server" Text="Next" CssClass="btn btn-primary" />
+                </div>
+            </div>
         </asp:View>
         <asp:View ID="SkillsView" runat="server">
             <asp:SqlDataSource ID="SqlDataSource_SkillType1" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 1"></asp:SqlDataSource>
@@ -321,9 +297,12 @@
                 </div>
             </div>
             <br />
-            <br />
-            <asp:Button CommandName="PrevView" ID="ButtonSkillsPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
-            <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
+            <div id="row">
+                <div id="col-md-8">
+                    <asp:Button CommandName="PrevView" ID="ButtonSkillsPrev" runat="server" Text="Previous" CssClass="btn btn-primary" />
+                    <asp:Button ID="ButtonSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" />
+                </div>
+            </div>
         </asp:View>
     </asp:MultiView>
 

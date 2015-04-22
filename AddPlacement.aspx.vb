@@ -41,26 +41,71 @@ Partial Class AddPlacement
         End If
 
         Dim sqlConn As New SqlConnection(ConfigurationManager.ConnectionStrings("cs_Placement").ConnectionString)
-
         Dim sqlAdp As New SqlDataAdapter
-        Dim sqlCmd As New SqlCommand
 
-        sqlCmd.Connection = sqlConn
-        sqlCmd.CommandText = "sp_PLACEMENTAPP_AddPlacement"
-        sqlCmd.CommandType = Data.CommandType.StoredProcedure
+        ' Run stored procedure sp_PLACEMENT_AddPlacement to add to DB and return PlacementID
+        Dim sqlCmdAdd As New SqlCommand
+        Dim returnValue As Integer
 
-        sqlCmd.Parameters.Add(New SqlParameter("@City", city))
-        sqlCmd.Parameters.Add(New SqlParameter("@StateAbbrev", stateAbbrev))
-        sqlCmd.Parameters.Add(New SqlParameter("@CompanyID", companyID))
-        sqlCmd.Parameters.Add(New SqlParameter("@PositionTypeID", positionTypeID))
-        sqlCmd.Parameters.Add(New SqlParameter("@PositionTitle", positionTitle))
-        sqlCmd.Parameters.Add(New SqlParameter("@StudentID", studentID))
-        sqlCmd.Parameters.Add(New SqlParameter("@JobType", jobType))
-        sqlCmd.Parameters.Add(New SqlParameter("@StartDate", startDate))
-        sqlCmd.Parameters.Add(New SqlParameter("@EndDate", endDate))
-        sqlCmd.Parameters.Add(New SqlParameter("@Responsibility", responsibility))
+        sqlCmdAdd.Connection = sqlConn
+        sqlCmdAdd.CommandText = "sp_PLACEMENTAPP_AddPlacement"
+        sqlCmdAdd.CommandType = Data.CommandType.StoredProcedure
+
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@City", city))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@StateAbbrev", stateAbbrev))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@CompanyID", companyID))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@PositionTypeID", positionTypeID))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@PositionTitle", positionTitle))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@StudentID", studentID))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@JobType", jobType))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@StartDate", startDate))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@EndDate", endDate))
+        sqlCmdAdd.Parameters.Add(New SqlParameter("@Responsibility", responsibility))
         sqlConn.Open()
-        sqlCmd.ExecuteNonQuery()
+        returnValue = sqlCmdAdd.ExecuteScalar()
+        sqlConn.Close()
+
+
+        ' If checkbox is checked, run stored procedure sp_PLACEMENT_AddSkills to add to DB
+        Dim sqlCmdSkill As New SqlCommand
+
+        sqlCmdSkill.Connection = sqlConn
+        sqlCmdSkill.CommandText = "sp_PLACEMENTAPP_AddSkills"
+        sqlCmdSkill.CommandType = Data.CommandType.StoredProcedure
+
+        sqlConn.Open()
+        For i = 0 To CheckBoxListSkillType1.Items.Count - 1
+            If CheckBoxListSkillType1.Items(i).Selected Then
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@PlacementID", returnValue))
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@SkillID", CheckBoxListSkillType1.Items(i).Value))
+                sqlCmdSkill.ExecuteNonQuery()
+                sqlCmdSkill.Parameters.Clear()
+            End If
+        Next
+        For i = 0 To CheckBoxListSkillType2.Items.Count - 1
+            If CheckBoxListSkillType2.Items(i).Selected Then
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@PlacementID", returnValue))
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@SkillID", CheckBoxListSkillType2.Items(i).Value))
+                sqlCmdSkill.ExecuteNonQuery()
+                sqlCmdSkill.Parameters.Clear()
+            End If
+        Next
+        For i = 0 To CheckBoxListSkillType3.Items.Count - 1
+            If CheckBoxListSkillType3.Items(i).Selected Then
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@PlacementID", returnValue))
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@SkillID", CheckBoxListSkillType3.Items(i).Value))
+                sqlCmdSkill.ExecuteNonQuery()
+                sqlCmdSkill.Parameters.Clear()
+            End If
+        Next
+        For i = 0 To CheckBoxListSkillType4.Items.Count - 1
+            If CheckBoxListSkillType4.Items(i).Selected Then
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@PlacementID", returnValue))
+                sqlCmdSkill.Parameters.Add(New SqlParameter("@SkillID", CheckBoxListSkillType4.Items(i).Value))
+                sqlCmdSkill.ExecuteNonQuery()
+                sqlCmdSkill.Parameters.Clear()
+            End If
+        Next
         sqlConn.Close()
 
         Response.Redirect("ViewPlacements.aspx")
