@@ -158,18 +158,19 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label>Responsibilities:</label>
-                            <asp:TextBox ID="ResponsibilityLabel" runat="server" CssClass="form-control" Text='<%# Bind("Responsibility") %>' TextMode="MultiLine" ReadOnly="True" BackColor="White" />
+                            <asp:TextBox ID="ResponsibilityLabel" runat="server" CssClass="form-control" Text='<%# Bind("Responsibility") %>' TextMode="MultiLine" ReadOnly="True" BackColor="White" Rows="4" />
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <label>Skills Required:</label>
+                    <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource_PlacementSkills" CssClass="form-control" DataTextField="SkillName" DataValueField="SkillName"></asp:ListBox>
+                </div>
+            </div>
         </ItemTemplate>
     </asp:FormView>
-    <div class="row">
-        <div class="col-md-8">
-            <label>Skills Required:</label>
-            <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource_PlacementSkills" CssClass="form-control" DataTextField="SkillName" DataValueField="SkillName"></asp:ListBox>
-        </div>
-    </div>
+    
 </asp:Content>
 
