@@ -27,7 +27,7 @@
     </asp:SqlDataSource>
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add a New Position</h1>
+            <h1 class="page-header">Add a New Placement</h1>
         </div>
     </div>
 
@@ -37,8 +37,8 @@
                 <div class="col-md-8">
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Select a Company</label> 
-                            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="CompanyID" CssClass="form-control" AppendDataBoundItems="true">
+                            <label>Company</label> 
+                            <asp:DropDownList ID="DropDownListCompany1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource_Company" DataTextField="Name" DataValueField="CompanyID" CssClass="form-control" AppendDataBoundItems="true" required="required" >
                                 <asp:ListItem Text="-- Select a Company --" Value=""></asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -85,7 +85,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>City:</label>
-                            <asp:TextBox ID="TextBoxCity" runat="server" CssClass="form-control" TextMode="SingleLine"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxCity" runat="server" CssClass="form-control" TextMode="SingleLine" required="required"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>State:</label>
-                            <asp:DropDownList ID="DropDownListStates" runat="server" CssClass="form-control" AppendDataBoundItems="true">
+                            <asp:DropDownList ID="DropDownListStates" runat="server" CssClass="form-control" AppendDataBoundItems="true" required="required">
                                 <asp:ListItem Text="-- Select a State --" Value=""></asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -111,21 +111,21 @@
 
             <div role="form" class="row col-md-8">
                 <div class="form-group">
-                    <label for="jobType" class="control-label input-group">Select a Job Type:</label>
+                    <label for="jobType" class="control-label input-group" >Select a Job Type:</label>
                     <div class="btn-group" data-toggle="buttons">
                         <label class="btn btn-default">
-                            <input id="radioJobTypeF" name="jobType" value="F" type="radio" runat="server" />Full Time
+                            <input id="radioJobTypeF" name="jobType" value="F" type="radio" runat="server" required="required"/>Full Time
                         </label>
                         <label class="btn btn-default">
-                            <input id="radioJobTypeI" name="jobType" value="I" type="radio" runat="server" />Intership
+                            <input id="radioJobTypeI" name="jobType" value="I" type="radio" runat="server" required="required"/>Intership
                         </label>
                     </div> 
                 </div> 
                 
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Select Position Type:</label>
-                        <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control" AppendDataBoundItems="true">
+                        <label>Position Type:</label>
+                        <asp:DropDownList ID="DropDownListPositionType" runat="server" DataSourceID="SqlDataSource_PositionType" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control" AppendDataBoundItems="true" required="required">
                                 <asp:ListItem Text="-- Select a Position Type --" Value=""></asp:ListItem>
                         </asp:DropDownList>
                     </div>
@@ -133,8 +133,8 @@
 
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label>Select Position Title:</label>
-                        <asp:TextBox ID="PositionName" runat="server" CssClass="form-control"></asp:TextBox>
+                        <label>Position Title:</label>
+                        <asp:TextBox ID="PositionName" runat="server" CssClass="form-control" required="required"></asp:TextBox>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Student ID:</label>
-                            <asp:DropDownList ID="DropDownListStudents" runat="server" CssClass="form-control" AppendDataBoundItems="True" DataSourceID="SqlDataSource_Students" DataTextField="StudentID" DataValueField="StudentID">
+                            <asp:DropDownList ID="DropDownListStudents" runat="server" CssClass="form-control" AppendDataBoundItems="True" DataSourceID="SqlDataSource_Students" DataTextField="StudentID" DataValueField="StudentID" required="required">
                                 <asp:ListItem Text="-- Select your ID --" Value=""></asp:ListItem>
                             </asp:DropDownList>
                         </div>
@@ -164,7 +164,7 @@
                         <div class="controls">
                             <label>Date Starting:</label>
                             <div id="datepickerStart" class="input-group date">
-                                <input id="labelStartDate" type="text" class="form-control" runat="server"/>
+                                <input id="labelStartDate" type="text" class="form-control" runat="server" required="required"/>
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </div>
