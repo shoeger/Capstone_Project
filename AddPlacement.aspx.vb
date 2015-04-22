@@ -30,7 +30,7 @@ Partial Class AddPlacement
         Dim studentID As String = DropDownListStudents.SelectedValue
         Dim jobType As String
         Dim startDate As Date = labelStartDate.Value
-        Dim endDate As Date = labelEndDate.Value
+        Dim endDate As Date
         Dim responsibility As String = TextBoxResponsibility.Text.ToString
 
         ' Set value based on radio button selected
@@ -38,6 +38,11 @@ Partial Class AddPlacement
             jobType = radioJobTypeF.Value.ToString
         ElseIf radioJobTypeI.Checked = True Then
             jobType = radioJobTypeI.Value.ToString
+        End If
+
+        ' Determine if endDate has been entered and update variable
+        If labelEndDate.Value <> "" Then
+            endDate = labelEndDate.Value
         End If
 
         Dim sqlConn As New SqlConnection(ConfigurationManager.ConnectionStrings("cs_Placement").ConnectionString)
