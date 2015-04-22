@@ -13,13 +13,23 @@ Partial Class ViewPlacements
         End If
     End Sub
 
-    Protected Sub searchTextbox_TextChanged(sender As Object, e As EventArgs) Handles searchTextbox.TextChanged
+    Protected Sub buttonSearch_Click(sender As Object, e As EventArgs) Handles buttonSearch.Click
 
-        Dim searchword As String
+        Dim searchWord As String
+        Dim userInput As String
 
-        searchword = "SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID where (JobType Like '%" + searchTextbox.Text.ToString() + "%')"
+        ' Retrieve user input and convert format readable by database
+        If textboxSearch.Text.ToLower.ToString() = "intern" Or textboxSearch.Text.ToLower.ToString() = "internship" Then
+            userInput = "I"
+        ElseIf textboxSearch.Text.ToLower.ToString() = "fulltime" Or textboxSearch.Text.ToLower.ToString() = "full-time" Or textboxSearch.Text.ToLower.ToString() = "full time" Then
+            userInput = "F"
+        Else
+            userInput = "No Result"
+        End If
 
-        SqlDataSource1.SelectCommand = searchword
+        searchWord = "SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID where (JobType Like '%" + userInput + "%')"
+
+        SqlDataSource_Placements.SelectCommand = searchWord
 
     End Sub
 End Class
