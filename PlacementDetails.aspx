@@ -15,6 +15,11 @@
             <asp:QueryStringParameter Name="PlacementID" QueryStringField="PlacementID" />
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource_PlacementSkills" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT s.SkillName FROM PLACEMENT_SKILL AS ps INNER JOIN SKILL AS s ON ps.SkillID = s.SkillID WHERE (ps.PlacementID = @PlacementID)">
+        <SelectParameters>
+            <asp:QueryStringParameter Name="PlacementID" QueryStringField="PlacementID" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSourceDetails" Width="100%" CssClass="formview" >
         <EditItemTemplate>
             PlacementID:
@@ -88,46 +93,83 @@
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
-           <div role="form" class="col-md-8">
-                <div class="form-group">
-                    <label>Company Name:</label>
-                    <asp:Label ID="NameLabel" runat="server" CssClass="form-control" Text='<%# Bind("Name") %>' />
+           <div role="form">
+               <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Company Name:</label>
+                            <asp:Label ID="NameLabel" runat="server" CssClass="form-control" Text='<%# Bind("Name") %>' />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Job Type:</label>
-                    <asp:Label ID="JobTypeLabel" runat="server" CssClass="form-control" Text='<%# Bind("JobType") %>' />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Job Type:</label>
+                            <asp:Label ID="JobTypeLabel" runat="server" CssClass="form-control" Text='<%# Bind("JobType") %>' />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Position Type:</label>
-                    <asp:Label ID="PositionTypeNameLabel" runat="server" CssClass="form-control" Text='<%# Bind("PositionTypeName") %>' />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Position Type:</label>
+                            <asp:Label ID="PositionTypeNameLabel" runat="server" CssClass="form-control" Text='<%# Bind("PositionTypeName") %>' />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Position Title:</label>
-                    <asp:Label ID="PositionTitleLabel" runat="server" CssClass="form-control" Text='<%# Bind("PositionTitle") %>' />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Position Title:</label>
+                            <asp:Label ID="PositionTitleLabel" runat="server" CssClass="form-control" Text='<%# Bind("PositionTitle") %>' />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>City:</label>
-                    <asp:Label ID="CityLabel" runat="server" CssClass="form-control" Text='<%# Bind("City")%>' />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>City:</label>
+                            <asp:Label ID="CityLabel" runat="server" CssClass="form-control" Text='<%# Bind("City")%>' />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>State:</label>
+                            <asp:Label ID="StateAbbrevLabel" runat="server" CssClass="form-control" Text='<%# Bind("StateAbbrev") %>' />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>State:</label>
-                    <asp:Label ID="StateAbbrevLabel" runat="server" CssClass="form-control" Text='<%# Bind("StateAbbrev") %>' />
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Start Date:</label>
+                            <asp:Label ID="StartDateLabel" runat="server" CssClass="form-control" Text='<%# Bind("StartDate", "{0:MM-dd-yyyy}")%>' />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>End Date:</label>
+                            <asp:Label ID="EndDateLabel" runat="server" CssClass="form-control" Text='<%# Bind("EndDate", "{0:MM-dd-yyyy}")%>' />
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Start Date:</label>
-                    <asp:Label ID="StartDateLabel" runat="server" CssClass="form-control" Text='<%# Bind("StartDate", "{0:MM-dd-yyyy}")%>' />
-                </div>
-                <div class="form-group">
-                    <label>End Date:</label>
-                    <asp:Label ID="EndDateLabel" runat="server" CssClass="form-control" Text='<%# Bind("EndDate", "{0:MM-dd-yyyy}")%>' />
-                </div>
-                <div class="form-group">
-                    <label>Responsibilities:</label>
-                    <asp:TextBox ID="ResponsibilityLabel" runat="server" CssClass="form-control" Text='<%# Bind("Responsibility") %>' TextMode="MultiLine" ReadOnly="True" BackColor="White" />
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Responsibilities:</label>
+                            <asp:TextBox ID="ResponsibilityLabel" runat="server" CssClass="form-control" Text='<%# Bind("Responsibility") %>' TextMode="MultiLine" ReadOnly="True" BackColor="White" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </ItemTemplate>
     </asp:FormView>
-  
+    <div class="row">
+        <div class="col-md-8">
+            <label>Skills Required:</label>
+            <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource_PlacementSkills" CssClass="form-control" DataTextField="SkillName" DataValueField="SkillName"></asp:ListBox>
+        </div>
+    </div>
 </asp:Content>
 
