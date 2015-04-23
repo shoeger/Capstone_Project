@@ -19,16 +19,16 @@ Partial Class ViewPlacements
         Dim searchWord As String
         Dim userInput As String
 
-        ' Retrieve user input and convert format readable by database
+        ' Retrieve user input and convert format readable by database for searching job type
         If textboxSearch.Text.ToLower.ToString() = "intern" Or textboxSearch.Text.ToLower.ToString() = "internship" Then
             userInput = "I"
-        ElseIf textboxSearch.Text.ToLower.ToString() = "fulltime" Or textboxSearch.Text.ToLower.ToString() = "full-time" Or textboxSearch.Text.ToLower.ToString() = "full time" Then
+        ElseIf textboxSearch.Text.ToLower.ToString() = "fulltime" Or textboxSearch.Text.ToLower.ToString() = "full-time" Or textboxSearch.Text.ToLower.ToString() = "full time" Or textboxSearch.Text.ToLower.ToString() = "full" Then
             userInput = "F"
         Else
             userInput = "No Result"
         End If
 
-        searchWord = "SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID where (Name Like '%" + textboxSearch.Text.ToString() + "%') or (PositionTypeName Like '%" + textboxSearch.Text.ToString() + "%') or (JobType Like '%" + textboxSearch.Text.ToString() + "%') or (City Like '%" + textboxSearch.Text.ToString() + "%') or (StateAbbrev Like '%" + textboxSearch.Text.ToString() + "%')"
+        searchWord = "SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID where (Name Like '%" + textboxSearch.Text.ToString() + "%') or (PositionTypeName Like '%" + textboxSearch.Text.ToString() + "%') or (JobType Like '%" + userInput + "%') or (City Like '%" + textboxSearch.Text.ToString() + "%') or (StateAbbrev Like '%" + textboxSearch.Text.ToString() + "%')"
 
         SqlDataSource_Placements.SelectCommand = searchWord
 
