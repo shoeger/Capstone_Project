@@ -117,7 +117,7 @@
                             <input id="radioJobTypeF" name="jobType" value="F" type="radio" runat="server" required="required"/>Full Time
                         </label>
                         <label class="btn btn-default">
-                            <input id="radioJobTypeI" name="jobType" value="I" type="radio" runat="server" required="required"/>Intership
+                            <input id="radioJobTypeI" name="jobType" value="I" type="radio" runat="server" required="required"/>Internship
                         </label>
                     </div> 
                 </div> 
