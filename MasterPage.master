@@ -39,6 +39,7 @@
                                 <asp:MenuItem Text="Admin Tools" Value="Admin Tools" NavigateUrl="#">
                                     <asp:MenuItem Text="Manage Positions" Value="Manage Positions" navigateUrl="~/Admin/ManagePositionTypes.aspx" />
                                     <asp:MenuItem Text="Manage Skills" Value="Manage Skills" navigateUrl="~/Admin/ManageSkills.aspx" />
+                                    <asp:MenuItem Text="Manage Placements" Value="Manage Placements" navigateUrl="~/Admin/ManagePlacements.aspx" />
                                 </asp:MenuItem>
                                 <asp:MenuItem Text="Manage Users" Value="Manage Users" NavigateUrl="#">
                                     <asp:MenuItem Text="Add User" Value="Add User" navigateUrl="~/siteManager/add_user.aspx" />

@@ -268,29 +268,29 @@
             <asp:SqlDataSource ID="SqlDataSource_SkillType2" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 2"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource_SkillType3" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 3"></asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSource_SkillType4" runat="server" ConnectionString="<%$ ConnectionStrings:cs_Placement %>" SelectCommand="SELECT * FROM SKILL WHERE SkillTypeID = 4"></asp:SqlDataSource>
-            <div id="row">
-                <div id="col-md-8">
+            <div class="row">
+                <div class="col-md-8">
                     <h2>Database Skills</h2>
                     <asp:CheckBoxList ID="CheckBoxListSkillType1" runat="server" DataSourceID="SqlDataSource_SkillType1" DataTextField="SkillName" DataValueField="SkillID" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="checkboxList">
                     </asp:CheckBoxList>
                 </div>
             </div>
-            <div id="row">
-                <div id="col-md-8">
+            <div class="row">
+                <div class="col-md-8">
                     <h2>Language Tools Skills</h2>
                     <asp:CheckBoxList ID="CheckBoxListSkillType2" runat="server" DataSourceID="SqlDataSource_SkillType2" DataTextField="SkillName" DataValueField="SkillID" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="checkboxList">
                     </asp:CheckBoxList>
                 </div>
             </div>
-            <div id="row">
-                <div id="col-md-8">
+            <div class="row">
+                <div class="col-md-8">
                     <h2>Operating Systems Skills</h2>
                     <asp:CheckBoxList ID="CheckBoxListSkillType3" runat="server" DataSourceID="SqlDataSource_SkillType3" DataTextField="SkillName" DataValueField="SkillID" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="checkboxList">
                     </asp:CheckBoxList>
                 </div>
             </div>
-            <div id="row">
-                <div id="col-md-8">
+            <div class="row">
+                <div class="col-md-8">
                     <h2>Hardware Skills</h2>
                     <asp:CheckBoxList ID="CheckBoxListSkillType4" runat="server" DataSourceID="SqlDataSource_SkillType4" DataTextField="SkillName" DataValueField="SkillID" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table" CssClass="checkboxList">
                     </asp:CheckBoxList>
