@@ -169,7 +169,10 @@
                     <asp:ListBox ID="ListBox1" runat="server" DataSourceID="SqlDataSource_PlacementSkills" CssClass="form-control" DataTextField="SkillName" DataValueField="SkillName"></asp:ListBox>
                 </div>
             </div>
+        &nbsp;&nbsp;<asp:LinkButton ID="EditItemButton" runat="server" CausesValidation="False" CommandName="Update" CssClass="btn btn-primary" Text="Edit" />
+        <asp:Button ID="ButtonSave" runat="server" CssClass="btn btn-primary" Text="Save" />
         </ItemTemplate>
+
     </asp:FormView>
     
 </asp:Content>

@@ -1,4 +1,5 @@
-﻿
+﻿Imports System.Data.SqlClient
+
 Partial Class Admin_ManagePlacementsDetails
     Inherits System.Web.UI.Page
 
@@ -12,5 +13,4 @@ Partial Class Admin_ManagePlacementsDetails
             jobTypeLabel.Text = "Full-time"
         End If
     End Sub
-
 End Class
