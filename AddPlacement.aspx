@@ -224,12 +224,12 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <div class="control-group form-group">
-                        <div id="controls">
+                    <div class="form" role="form">
+                        <div class="form-group">
                             <label for="jobPaid" class="control-label input-group">Position Paid:</label>
                             <div class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-default"><input name="jobPaid" value="Y" type="radio" />Yes</label>
-                                <label class="btn btn-default"><input name="jobPaid" value="N" type="radio" />No</label>
+                                <label class="btn btn-default"><input id="jobPaidYes" name="jobPaid" runat="server" value="Y" type="radio" />Yes</label>
+                                <label class="btn btn-default"><input id="jobPaidNo" name="jobPaid" runat="server" value="N" type="radio" />No</label>
                             </div> 
                         </div>
                     </div>

@@ -12,12 +12,12 @@ Partial Class AddPlacement
     End Sub
 
     Protected Sub FormView1_ItemDeleted(sender As Object, e As FormViewDeletedEventArgs) Handles FormView1.ItemDeleted
-        Response.Redirect("AddPosition.aspx")
+        Response.Redirect("AddPlacement.aspx")
     End Sub
 
 
     Protected Sub FormView1_ItemInserted(sender As Object, e As FormViewInsertedEventArgs) Handles FormView1.ItemInserted
-        Response.Redirect("AddPosition.aspx")
+        Response.Redirect("AddPlacement.aspx")
     End Sub
 
     Protected Sub ButtonSubmit_Click(sender As Object, e As EventArgs) Handles ButtonSubmit.Click
@@ -69,6 +69,56 @@ Partial Class AddPlacement
         sqlConn.Open()
         returnValue = sqlCmdAdd.ExecuteScalar()
         sqlConn.Close()
+
+        ' If position type selected is internship, run sp_PLACENMENT_AddIntern
+        If radioJobTypeI.Checked = True Then
+            Dim ContactFName As String = TextBoxContactFirstName.Text.ToString
+            Dim ContactLName As String = TextBoxContactLastName.Text.ToString
+            Dim Phone As String = TextBoxContactPhone.Text.ToString
+            Dim PaidStatus As String
+            Dim Email As String = TextBoxContactEmail.Text.ToString
+
+            If jobPaidYes.Checked = True Then
+
+                PaidStatus = "Y"
+
+            ElseIf jobPaidNo.Checked = True Then
+
+                PaidStatus = "N"
+
+            End If
+
+            Dim sqlCmdIntern As New SqlCommand
+
+            sqlCmdIntern.Connection = sqlConn
+            sqlCmdIntern.CommandText = "sp_PLACEMENTAPP_AddIntern"
+            sqlCmdIntern.CommandType = Data.CommandType.StoredProcedure
+
+            sqlCmdIntern.Parameters.Add(New SqlParameter("@PlacementID", returnValue))
+            sqlCmdIntern.Parameters.Add(New SqlParameter("@ContactFName", ContactFName))
+            sqlCmdIntern.Parameters.Add(New SqlParameter("@ContactLName", ContactLName))
+            sqlCmdIntern.Parameters.Add(New SqlParameter("@Phone", Phone))
+            sqlCmdIntern.Parameters.Add(New SqlParameter("@PaidStatus", PaidStatus))
+            sqlCmdIntern.Parameters.Add(New SqlParameter("@ContactEmail", Email))
+            sqlConn.Open()
+            sqlCmdIntern.ExecuteNonQuery()
+            sqlConn.Close()
+
+        ElseIf radioJobTypeF.Checked = True Then ' If position type selected is full time, run sp_PLACENMENT_AddFullTime
+            Dim salary As Decimal = TextBoxSalary.Text
+
+            Dim sqlCmdFullTime As New SqlCommand
+
+            sqlCmdFullTime.Connection = sqlConn
+            sqlCmdFullTime.CommandText = "sp_PLACEMENTAPP_AddFullTime"
+            sqlCmdFullTime.CommandType = Data.CommandType.StoredProcedure
+
+            sqlCmdFullTime.Parameters.Add(New SqlParameter("@PlacementID", returnValue))
+            sqlCmdFullTime.Parameters.Add(New SqlParameter("@Salary", salary))
+            sqlConn.Open()
+            sqlCmdFullTime.ExecuteNonQuery()
+            sqlConn.Close()
+        End If
 
 
         ' If checkbox is checked, run stored procedure sp_PLACEMENT_AddSkills to add to DB
