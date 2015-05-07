@@ -13,9 +13,7 @@ Partial Class ViewPlacements
         End If
     End Sub
 
-    
-    Protected Sub buttonSearch_Click(sender As Object, e As EventArgs) Handles buttonSearch.Click
-
+    Protected Sub textboxSearch_TextChanged(sender As Object, e As EventArgs) Handles textboxSearch.TextChanged
         Dim searchWord As String
         Dim userInput As String
 
@@ -31,9 +29,5 @@ Partial Class ViewPlacements
         searchWord = "SELECT p.PlacementID, c.Name, pt.PositionTypeName, p.City, p.StateAbbrev, p.JobType FROM PLACEMENT AS p INNER JOIN COMPANY AS c ON p.CompanyID = c.CompanyID INNER JOIN POSITION_TYPE AS pt ON p.PositionTypeID = pt.PositionTypeID where (Name Like '%" + textboxSearch.Text.ToString() + "%') or (PositionTypeName Like '%" + textboxSearch.Text.ToString() + "%') or (JobType Like '%" + userInput + "%') or (City Like '%" + textboxSearch.Text.ToString() + "%') or (StateAbbrev Like '%" + textboxSearch.Text.ToString() + "%')"
 
         SqlDataSource_Placements.SelectCommand = searchWord
-
     End Sub
-
-
-
 End Class
