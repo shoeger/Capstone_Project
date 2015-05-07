@@ -62,6 +62,16 @@ Partial Class MasterPage
             Next
             menuItems.Remove(adminItem)
         End If
+        If Roles.IsUserInRole("admin") Then
+            Dim menuItems As MenuItemCollection = menu_Master.Items
+            Dim adminItem As New MenuItem()
+            For Each MenuItem As MenuItem In menuItems
+                If MenuItem.Value = "View Placements" Then
+                    adminItem = MenuItem
+                End If
+            Next
+            menuItems.Remove(adminItem)
+        End If
     End Sub
 
     Protected Sub menu_Master_MenuItemClick(sender As Object, e As MenuEventArgs) Handles menu_Master.MenuItemClick
