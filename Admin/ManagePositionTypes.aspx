@@ -5,36 +5,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-12">
             <h1 class="page-header">Manage Position Types</h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-8">
-            <label>Please select a position type to edit:</label>
+            <label>Please select a position type:</label>
             <asp:ListBox ID="PositionTypeNameListBox" runat="server" DataSourceID="SqlDataSourceAddPositionTypeListbox" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control" AutoPostBack="true" ></asp:ListBox>
             <br />
             <asp:FormView ID="FormViewAddPositionType" runat="server" DataKeyNames="PositionTypeID" DataSourceID="SqlDataSourceAddPositionTypeFormview" CssClass="col-md-12">
                 <EditItemTemplate>
-                    <label>PositionTypeID:</label>
+                    <label>Position Type ID:</label>
                     <asp:Label ID="PositionTypeIDLabel1" runat="server" Text='<%# Eval("PositionTypeID") %>' CssClass="form-control" Enabled="false" />
                     <br />
-                    <label>PositionTypeName:</label>
-                    <asp:TextBox ID="PositionTypeNameTextBox" runat="server" Text='<%# Bind("PositionTypeName") %>' CssClass="form-control" />
+                    <label>Position Type Name:</label>
+                    <asp:TextBox ID="PositionTypeNameTextBox" runat="server" Text='<%# Bind("PositionTypeName") %>' CssClass="form-control" required="required" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorPositionTypeName" runat="server" ErrorMessage="Please enter a skill type name" CssClass="text-danger" ControlToValidate="PositionTypeNameTextBox" Display="Dynamic"></asp:RequiredFieldValidator>
                     <br />
                     <div class="text-right">
-                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-primary" />
-                        &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-primary" />
+                        <asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-link" />
+                        &nbsp;<asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-primary" />
                     </div>
                 </EditItemTemplate>
                 <InsertItemTemplate>
                     <label>Position Type Name:</label> 
                     <asp:TextBox ID="PositionTypeNameTextBox" runat="server" Text='<%# Bind("PositionTypeName") %>' CssClass="form-control" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorPositionTypeName" runat="server" ErrorMessage="Please enter a skill type name" CssClass="text-danger" ControlToValidate="PositionTypeNameTextBox" Display="Dynamic"></asp:RequiredFieldValidator>
                     <br />
                     <div class="text-right">
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary"/>
-                        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-primary" />
+                        <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-link" />
+                        &nbsp;<asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary" />
                     </div>
                 </InsertItemTemplate>
                 <ItemTemplate>
