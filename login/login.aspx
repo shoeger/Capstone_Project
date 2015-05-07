@@ -6,14 +6,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
     <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Log In</h1>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <asp:Login ID="Login1" runat="server" FailureTextStyle-CssClass="alert" LoginButtonStyle-CssClass="btn btn-primary btn-block" TextBoxStyle-CssClass="form-control" TitleText="" LabelStyle-CssClass="pull-left" CheckBoxStyle-CssClass="checkbox-inline" CssClass="pull-left"></asp:Login>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+				<div class="panel-heading panel-title">
+					<h4>Login</h4>
+				</div>
+				<div class="panel-body">
+                    <asp:Login ID="Login1" runat="server" CssClass="login" FailureTextStyle-CssClass="alert" LoginButtonStyle-CssClass="btn btn-primary" TextBoxStyle-CssClass="form-control" TitleText="" LabelStyle-CssClass="pull-left" CheckBoxStyle-CssClass="checkbox-inline" TextLayout="TextOnTop" Width="100%" OnLoggedIn="Login1_LoggedIn"></asp:Login>
+                </div>
+            </div>
         </div>
     </div>
 

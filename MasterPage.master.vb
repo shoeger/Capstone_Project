@@ -73,7 +73,7 @@ Partial Class MasterPage
         For Each MenuItem In menuItems
             If MenuItem.Text = "Log Off" Then
                 FormsAuthentication.SignOut()
-                FormsAuthentication.RedirectToLoginPage()
+                Response.Redirect("~/Default.aspx")
             End If
         Next
 
@@ -98,5 +98,6 @@ Partial Class MasterPage
             Next
         End If
     End Sub
+
 End Class
 
