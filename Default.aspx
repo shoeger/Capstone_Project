@@ -10,7 +10,7 @@
       <div class="container">
         <h1>BAIS Student Placement System</h1>
         <p>Over the past several years, the University of Iowa Business Analytics and Information Systems graduates have seen 100% placement rates within 6 months of graduation. The Hawkeye alumni network proudly spans the spectrum from Fortune 500 companies to entrepreneurial start-ups. We invite you to take a look at our recent student placements.</p>
-        <p><a class="btn btn-primary btn-lg" href="./ViewPlacements.aspx" role="button">View Student Placements &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/ViewPlacements.aspx" role="button">View Student Placements &raquo;</a></p>
       </div>
     </div>
 

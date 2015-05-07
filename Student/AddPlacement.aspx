@@ -4,7 +4,7 @@
     <title>Add a Placement</title> 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="head2" runat="server">
-    <link href="css/bootstrap-datepicker.css" rel="stylesheet" type="text/css"/>
+    <link href="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -308,8 +308,8 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/js/bootstrap-datepicker.js"></script>
+    <script src="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/js/bootstrap-datepicker.min.js"></script>
     <script>
         $('.input-group.date').datepicker({
             autoclose: true,
