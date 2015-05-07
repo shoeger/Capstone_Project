@@ -12,6 +12,7 @@
 
     <div class="row">
         <div class="col-md-8">
+            <label>Please select a position type to edit:</label>
             <asp:ListBox ID="PositionTypeNameListBox" runat="server" DataSourceID="SqlDataSourceAddPositionTypeListbox" DataTextField="PositionTypeName" DataValueField="PositionTypeID" CssClass="form-control" AutoPostBack="true" ></asp:ListBox>
             <br />
             <asp:FormView ID="FormViewAddPositionType" runat="server" DataKeyNames="PositionTypeID" DataSourceID="SqlDataSourceAddPositionTypeFormview" CssClass="col-md-12">
