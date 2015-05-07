@@ -8,8 +8,8 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="/css/Master.css" rel="stylesheet" type="text/css" />
+        <link href="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/css/Master.css" rel="stylesheet" type="text/css" />
 
         <asp:ContentPlaceHolder id="head2" runat="server"></asp:ContentPlaceHolder>
     </head>
@@ -83,7 +83,7 @@
 
                 });
             </script>
-            <script src="/js/bootstrap.min.js" type="text/javascript"></script>
+            <script src="https://instruct.biz.uiowa.edu/courses/MSCI4250/PlacementApp3/js/bootstrap.min.js" type="text/javascript"></script>
             <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
         </form>
     </body>
