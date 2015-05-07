@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="Contact.aspx.vb" Inherits="Contact" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    Contact Us
+    <title>Contact Us</title> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div id="contact_container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-md-12">
                 <h1 class="page-header">Contact</h1>
             </div>
         </div>

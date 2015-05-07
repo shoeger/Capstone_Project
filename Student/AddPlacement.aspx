@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="AddPlacement.aspx.vb" Inherits="AddPlacement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"> 
-    Add Postion
+    <title>Add a Placement</title> 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="head2" runat="server">
     <link href="css/bootstrap-datepicker.css" rel="stylesheet" type="text/css"/>

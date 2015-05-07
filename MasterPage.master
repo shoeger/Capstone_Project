@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title><asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder></title>
+        <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,7 +37,7 @@
                                 <asp:MenuItem Text="Placements" Value="View Placements" navigateUrl="~/ViewPlacements.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="My Account" Value="My Account" navigateUrl="~/ViewAccount.aspx"></asp:MenuItem>
                                 <asp:MenuItem Text="Admin Tools" Value="Admin Tools" NavigateUrl="#">
-                                    <asp:MenuItem Text="Manage Positions" Value="Manage Positions" navigateUrl="~/Admin/ManagePositionTypes.aspx" />
+                                    <asp:MenuItem Text="Manage Positions" Value="Manage Position Types" navigateUrl="~/Admin/ManagePositionTypes.aspx" />
                                     <asp:MenuItem Text="Manage Skills" Value="Manage Skills" navigateUrl="~/Admin/ManageSkills.aspx" />
                                     <asp:MenuItem Text="Manage Placements" Value="Manage Placements" navigateUrl="~/Admin/ManagePlacements.aspx" />
                                 </asp:MenuItem>
